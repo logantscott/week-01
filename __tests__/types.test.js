@@ -11,7 +11,7 @@ const {
   castToBoolean
 } = require('../lib/types.js');
 
-describe('validator module', () => {
+describe.skip('validator module', () => {
   describe('basic validation', () => {
     it('properly tells if a value is a numbers', () => {
       expect(isNumber(3)).toBeTruthy();
