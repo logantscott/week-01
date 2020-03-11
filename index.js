@@ -1,4 +1,3 @@
-const { castToNumber } = require('./lib/types.js');
 const { Validator } = require('./lib/Validator.js');
 const { Schema } = require('./lib/Schema.js');
 
@@ -15,17 +14,11 @@ const weightSchema = {
   type: String
 };
 
-const obj = {
-  name: 'spot',
-  age: 7,
-  weight: [20]
-};
-
 const nameValidator = new Validator('name', nameSchema);
 const ageValidator = new Validator('age', ageSchema);
 const weightValidator = new Validator('weight', weightSchema);
 
-// console.log(nameValidator);
+console.log(nameValidator, ageValidator, weightValidator);
 
 // console.log(weightValidator.validate(obj));
 
@@ -55,10 +48,6 @@ const spot = {
 const rover = {
   name: 'rover',
   age: '10'
-};
-
-const who = {
-  age: 'hi'
 };
 
 console.log(schema);
