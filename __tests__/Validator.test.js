@@ -3,7 +3,7 @@ const {
 } = require('../lib/Validator.js');
 
 
-describe.skip('Validator', () => {
+describe('Validator', () => {
   let nameValidator;
   beforeEach(() => {
     nameValidator = new Validator('name', {

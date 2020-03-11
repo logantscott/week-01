@@ -53,4 +53,15 @@ describe('Schema', () => {
 
     expect(() => schema.validate(dog)).toThrowError();
   });
+  it('returns expected when not required field is missing', () => {
+    const dog = {
+      name: 'spot',
+      age: 5
+    };
+
+    expect(schema.validate(dog)).toEqual({
+      name: 'spot',
+      age: 5
+    });
+  });
 });
