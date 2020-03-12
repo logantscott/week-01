@@ -27,7 +27,7 @@ describe('file system functions', () => {
     };
 
     return writeJSON('./test.json', dog)
-      .then(data => {
+      .then(() => {
         expect(fs.writeFile)
           .toHaveBeenCalledWith('./test.json', JSON.stringify(dog), { 'encoding': 'utf8' });
       });
@@ -67,6 +67,9 @@ describe('file system functions', () => {
           .toHaveBeenCalledWith('./test.json', { 'encoding': 'utf8' });
         expect(fs.writeFile)
           .toHaveBeenCalledWith('./test.json', '{"name":"rover"}', { 'encoding': 'utf8' });
+        expect(data).toEqual({
+          name: 'rover'
+        });
       });
   });
 
