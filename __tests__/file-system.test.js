@@ -6,7 +6,7 @@ jest.mock('fs', () => ({
     mkdir: jest.fn(() => Promise.resolve()),
     writeFile: jest.fn(() => Promise.resolve()),
     readFile: jest.fn(() => Promise.resolve('{"name":"spot"}')),
-    readdir: jest.fn(() => Promise.resolve()),
+    readdir: jest.fn(() => Promise.resolve(['test.json', 'test2.json'])),
     unlink: jest.fn(() => Promise.resolve())
   }
 }));
@@ -50,10 +50,12 @@ describe('file system functions', () => {
         expect(fs.readdir)
           .toHaveBeenCalledWith('../lib/data');
         expect(fs.readFile)
-          .toHaveBeenCalledWith('../lib/data/spot.json');
+          .toHaveBeenCalledWith('../lib/data/test.json', { 'encoding': 'utf8' });
+        expect(fs.readFile)
+          .toHaveBeenCalledWith('../lib/data/test2.json', { 'encoding': 'utf8' });
         expect(data).toEqual([
           { name: 'spot' },
-          { name: 'spot ' }
+          { name: 'spot' }
         ]);
       });
   });
