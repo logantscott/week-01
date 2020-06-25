@@ -25,3 +25,5 @@ exports[`validator module casters throws if value is not castable to string 5`] 
         return 'hi';
       }<< to String"
 `;
+
+exports[`validator module casters throws if value is not castable to string 6`] = `"Cannot cast >>undefined<< to String"`;

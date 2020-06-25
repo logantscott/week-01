@@ -91,8 +91,11 @@ describe('validator module', () => {
 
     it('can cast values to a string', () => {
       expect(castToString(3121)).toEqual('3121');
+      // eslint-disable-next-line no-undef
+      expect(castToString(BigInt(3121))).toEqual('3121');
       expect(castToString(true)).toEqual('true');
       expect(castToString(false)).toEqual('false');
+      expect(castToString('string')).toEqual('string');
     });
 
     it('throws if value is not castable to string', () => {
@@ -101,6 +104,7 @@ describe('validator module', () => {
       expect(() => castToString(null)).toThrowErrorMatchingSnapshot();
       expect(() => castToString(undefined)).toThrowErrorMatchingSnapshot();
       expect(() => castToString(function(){return 'hi';})).toThrowErrorMatchingSnapshot();
+      expect(() => castToString()).toThrowErrorMatchingSnapshot();
     });
 
     it('can cast values to a Boolean', () => {
